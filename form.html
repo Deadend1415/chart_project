@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chart project -Home</title>
+    <title>Chart project -Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--  Icon library  -->
     <script src="https://kit.fontawesome.com/7963dd1579.js" crossorigin="anonymous"></script>
@@ -16,7 +16,11 @@
         }
     </style>
 </head>
-<body>
+<body class="container-fluid d-flex flex-column vh-100 p-0 justify-content-between"
+      style="background-image: url(assets/bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;">
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container-fluid justify-content-center p-0">
@@ -45,37 +49,51 @@
         </div>
     </div>
 </nav>
-<!-- Group/Father Card-->
-<div class="container-fluid d-flex justify-content-evenly"
-     style="background-image: url(assets/bg.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;">
-<!-- First Card -->
-    <div id="card1" style="width: 18rem;">
-        <img src="assets/div1.gif" class="card-img-top" alt="...">
+
+<!-- Card -->
+    <div id="card1">
         <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
+<!-- Form -->
+                <form>
+                <div class="input-group mb-3">
+                <span class="bg-success-subtle input-group-text" >Item</span>
+                <input type="text" class="form-control" placeholder="Item" aria-label="Item">
+                <span class="bg-success-subtle input-group-text"><i class='fab fa-asymmetrik'></i></span>
+                <input type="text" class="form-control" placeholder="Price" aria-label="Price">
+                <span class="bg-success-subtle input-group-text">Price</span>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="bg-success-subtle input-group-text" id="basic-addon1">Category</span>
+                    <select class="form-select">
+                        <option selected>Choose...</option>
+                        <option value="Snack">Snack</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="bg-success-subtle input-group-text" id="basic-addon2">Date</span>
+                    <input type="text" class="form-control" placeholder="Time Stamp" aria-label="Time Stamp" aria-describedby="basic-addon2">
+                </div>
+                    <button type="submit" class="btn btn-outline-success input-group">Submit</button>
+            </form>
+<!-- Form -->
+            </div>
+<!-- Card -->
         </div>
+<!-- Copyright -->
+    <div class="text-center p-3 m-2">
+        © 2024 Copyright: Daniel Charts Project
     </div>
-<!-- Second Card -->
-    <div id="card2" style="width: 18rem;align-self:end">
-        <img src="assets/div2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-        </div>
+<!-- Copyright -->
     </div>
 
-</div>
+
 <!-- JavaScript for grouping bootstrap classes-->
 <script>
 <!--  Code to reuse the class based styling from Bootstrap5  -->
-    const cardStyle = 'card ms-1 m-2 border-4 border-success-subtle shadow-lg';
+    const cardStyle = 'card border-4 m-3 border-success-subtle shadow-lg align-self-center';
     document.getElementById('card1').className = cardStyle;
-    document.getElementById('card2').className = cardStyle;
-    document.getElementById('card3').className = cardStyle;
+
 //     To reuse the nav bar item styling
     const Nav_ListStyle = 'nav-item border-bottom border-3 border-light';
     document.getElementById('nav_list1').className = Nav_ListStyle;
