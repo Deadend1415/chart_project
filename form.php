@@ -1,14 +1,24 @@
 <?php
     include ("config.php");
-// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-// Example processing: sanitize the input
-$Price = htmlspecialchars($_POST['Price']);
+    $DB = new DataBase();
+    $DB->set_User($_POST["Price"],$_POST["Item"],$_POST["Category"],$_POST["Time_Stamp"]);
+    //Alert to the user
+    echo "
+        <div class='toast position-fixed bottom-0 end-0 show' role='alert' aria-live='assertive' aria-atomic='true'>
+    <div class='toast-header'>
+        <i class='fab fa-android fa-lg' style='color: rgb(34 179 112 / 65%);margin-right:5px;'></i>
+        <strong class='me-auto'>Chart Project</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+    </div>
+    <div class='toast-body bg-success-subtle'>
+        Data inputed Sucessfully.
+    <i class='fas fa-check-circle fa-lg' style='color: rgb(34 179 112 / 65%)'></i>
+    </div>
+</div>
+    ";
+}
 
-// Show alert with submitted name
-echo "<script type='text/javascript'>
-            alert('Form submitted! Hello, $Price');
-          </script>";}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,32 +76,32 @@ echo "<script type='text/javascript'>
 <div id="card1">
     <div class="card-body">
         <!-- Form -->
-        <form class="was-validated" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+        <form class="was-validated" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <div class="input-group mb-3">
                 <span class="bg-success-subtle input-group-text" >Item</span>
-                <input type="text" class="form-control" placeholder="Item" aria-label="Item" required>
+                <input type="text" class="form-control" placeholder="Item" aria-label="Item" name="Item" required>
                 <span class="bg-success-subtle input-group-text"><i class='fab fa-asymmetrik'></i></span>
-                <input type="text" class="form-control" placeholder="Price" aria-label="Price" required>
+                <input type="text" class="form-control" placeholder="Price" aria-label="Price" name="Price" required>
                 <span class="bg-success-subtle input-group-text">Price</span>
             </div>
 
             <div class="input-group mb-3">
                 <span class="bg-success-subtle input-group-text" id="basic-addon1">Category</span>
-                <select class="form-select">
+                <select class="form-select" name="Category">
                     <option selected>Choose...</option>
                     <option value="Snack">Snack</option>
                     <option value="Utilities">Utilities</option>
                     <option value="Other">Other</option>
                 </select>
                 <span class="bg-success-subtle input-group-text" id="basic-addon2">Date</span>
-                <input type="date" class="form-control" placeholder="Year-Month-Day" aria-label="Time Stamp" aria-describedby="basic-addon2" required>
+                <input type="date" name="Time_Stamp" class="form-control" placeholder="Year-Month-Day" aria-label="Time Stamp" aria-describedby="basic-addon2" required>
             </div>
             <button type="submit" class="btn btn-outline-success input-group">Submit</button>
         </form>
         <!-- Form -->
     </div>
-    <!-- Card -->
 </div>
+<!-- Card -->
 <!-- Copyright -->
 <div class="text-center p-3 m-2">
     © 2024 Copyright: Daniel Charts Project
