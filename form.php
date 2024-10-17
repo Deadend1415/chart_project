@@ -59,13 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- Collapsable Navigation Bar List-->
             <ul class="navbar-nav align-items-center bg-success-subtle">
                 <li id="nav_list1">
-                    <a class="nav-link" aria-current="page" href="#">This is the first line</a>
+                    <a class="nav-link" aria-current="page" href="main.html">Main - display data on main page</a>
                 </li>
                 <li id="nav_list2">
                     <a class="nav-link" href="#">This is the second line</a>
-                </li>
-                <li id="nav_list3">
-                    <a class="nav-link" href="#">This may be the last line</a>
                 </li>
             </ul>
         </div>
