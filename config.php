@@ -28,7 +28,13 @@ class DataBase
             echo "Error: " . $e->getMessage();
         }
     }
+    function test($sql,$x)
+    {
+        $stmt = $this->db->query($sql);
+        while ($row = $stmt->fetch()) {
+            echo "['".$row[$x]."',".$row['Number']."],";
+        }
+    }
 
 }
-
 ?>
