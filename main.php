@@ -17,26 +17,63 @@ $DB= new DataBase();
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.load("visualization", "1", {packages:["corechart"]});
-        google.setOnLoadCallback(drawChart);
-        function drawChart() {
+        google.setOnLoadCallback(drawChart1);
+        google.setOnLoadCallback(drawChart2);
+        google.setOnLoadCallback(drawChart3);
+        function drawChart1() {
             var data = google.visualization.arrayToDataTable([
 
                 ['class Name','Students'],
                 <?php
-            $DB->test("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
+            $DB->test("SELECT COUNT(Item) as Number,Category FROM reciept GROUP BY Category",'Category');
                 ?>
 
         ]);
 
             var options = {
-                title: 'Sales',
-                pieHole: 0.5,
+                title: '',
+                pieHole: 0.3,
                 pieSliceTextStyle: {
                     color: 'white',
                 },
-                legend: 'none'
+                legend: 'bottom'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById("Chart1"));
+            chart.draw(data,options);
+        }
+        function drawChart2() {
+            var data = google.visualization.arrayToDataTable([
+
+                ['class Name','Students'],
+                <?php
+                $DB->test("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
+                ?>
+
+            ]);
+
+            var options = {
+                title: '',
+                is3D: true
             };
             var chart = new google.visualization.PieChart(document.getElementById("Chart2"));
+            chart.draw(data,options);
+        }
+        function drawChart3() {
+            var data = google.visualization.arrayToDataTable([
+
+                ['class Name','Students'],
+                <?php
+                $DB->test("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
+                ?>
+
+            ]);
+
+            var options = {
+                title: '',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+            var chart = new google.visualization.LineChart(document.getElementById("Chart3"));
             chart.draw(data,options);
         }
 
@@ -83,7 +120,9 @@ $DB= new DataBase();
 <div class="container-fluid d-flex justify-content-evenly " style="display: flex;flex-wrap: wrap">
     <!-- First Card -->
     <div id="card1" style="width: 22rem;">
-        <img src="assets/div1.gif" class="card-img-top" alt="...">
+        <div class="card-body p-0">
+            <div id="Chart1" class="h-100"></div>
+        </div>
         <div class="card-footer">
             <p class="text-center">Number of Items bought by Category.</p>
         </div>
@@ -100,7 +139,9 @@ $DB= new DataBase();
 
     <!-- Third Card -->
     <div id="card3" style="width: 22rem;">
-        <div class="card-body p-0"></div>
+        <div class="card-body p-0">
+            <div id="Chart3" class="h-100"></div>
+        </div>
         <div class="card-footer">
             <p class="text-center">Chart of expenses on daily basis</p>
         </div>

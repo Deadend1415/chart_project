@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     background-position: center;
     background-size: cover;">
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-light ">
     <div class="container-fluid justify-content-center p-0">
         <!--Top visible part of navbar-->
         <div class="navbar-brand">
