@@ -63,17 +63,19 @@ $DB= new DataBase();
 
                 ['class Name','Students'],
                 <?php
-                $DB->test("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
+                $DB->test("SELECT Time_stamp,SUM(Price) FROM reciept GROUP BY Item",'Item');
                 ?>
 
             ]);
 
             var options = {
-                title: '',
-                curveType: 'function',
-                legend: { position: 'bottom' }
-            };
-            var chart = new google.visualization.LineChart(document.getElementById("Chart3"));
+                title : 'Monthly Coffee Production by Country',
+                vAxis: {title: 'Cups'},
+                hAxis: {title: 'Month'},
+                seriesType: 'bars',
+                series: {5: {type: 'line'}}
+
+            var chart = new google.visualization.ComboChart(document.getElementById("Chart3"));
             chart.draw(data,options);
         }
 
