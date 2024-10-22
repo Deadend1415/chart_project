@@ -23,9 +23,9 @@ $DB= new DataBase();
         function drawChart1() {
             var data = google.visualization.arrayToDataTable([
 
-                ['class Name','Students'],
+                ['Item','Category'],
                 <?php
-            $DB->test("SELECT COUNT(Item) as Number,Category FROM reciept GROUP BY Category",'Category');
+            $DB->dataFetch("SELECT COUNT(Item) as Number,Category FROM reciept GROUP BY Category",'Category');
                 ?>
 
         ]);
@@ -44,9 +44,9 @@ $DB= new DataBase();
         function drawChart2() {
             var data = google.visualization.arrayToDataTable([
 
-                ['class Name','Students'],
+                ['Number','Item'],
                 <?php
-                $DB->test("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
+                $DB->dataFetch("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
                 ?>
 
             ]);
@@ -61,9 +61,9 @@ $DB= new DataBase();
         function drawChart3() {
             var data = google.visualization.arrayToDataTable([
 
-                ['class Name','Students'],
+                ['Sum of Price','Item'],
                 <?php
-                $DB->test("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
+                $DB->dataFetch("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
                 ?>
 
             ]);
@@ -117,7 +117,7 @@ $DB= new DataBase();
     </div>
 </nav>
 <!-- Group/Father Card-->
-<div class="container-fluid d-flex justify-content-evenly " style="display: flex;flex-wrap: wrap">
+<div class="container-fluid d-flex justify-content-evenly mt-5 " style="display: flex;flex-wrap: wrap">
     <!-- First Card -->
     <div id="card1" style="width: 22rem;">
         <div class="card-body p-0">
