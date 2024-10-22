@@ -61,9 +61,9 @@ $DB= new DataBase();
         function drawChart3() {
             var data = google.visualization.arrayToDataTable([
 
-                ['Sum of Price','Item'],
+                ['y','x'],
                 <?php
-                $DB->dataFetch("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
+                $DB->dataFetch2("SELECT SUM(Price) as Numbers,Time_stamp,COUNT(Item) as Num FROM reciept GROUP BY Time_stamp");
                 ?>
 
             ]);

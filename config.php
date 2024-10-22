@@ -35,6 +35,15 @@ class DataBase
             echo "['".$row[$x]."',".$row['Number']."],";
         }
     }
+    function dataFetch2($sql)
+    {
+        $stmt = $this->db->query($sql);
+        while ($row = $stmt->fetch()) {
+            echo "['".$row['Time_stamp']."',".$row['Numbers']."],";
+        }
+    }
+
+
 
 }
 ?>
