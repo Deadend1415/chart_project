@@ -89,7 +89,7 @@ $DB= new DataBase();
         }
     </style>
 </head>
-<body class="container-fluid d-flex flex-column p-0"
+<body class="container-fluid d-flex flex-column vh-100 p-0"
       style="background-image: url(assets/bg.png);
     background-repeat: no-repeat;
     background-position: center;
