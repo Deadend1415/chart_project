@@ -35,11 +35,11 @@ class DataBase
             echo "['".$row[$x]."',".$row['Number']."],";
         }
     }
-    function dataFetch2($sql)
+    function dataFetch2($sql,$x,$y,$z)
     {
         $stmt = $this->db->query($sql);
         while ($row = $stmt->fetch()) {
-            echo "['".$row['Time_stamp']."',".$row['Numbers']."],";
+            echo "['".$row[$x]."', ".$row[$y]." , ".$row[$z]."],";
         }
     }
 

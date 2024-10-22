@@ -57,12 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Collapsable Navigation Bar List-->
-            <ul class="navbar-nav align-items-center bg-success-subtle">
+            <ul class="navbar-nav align-items-center bg-success-subtle mt-3">
                 <li id="nav_list1">
-                    <a class="nav-link" aria-current="page" href="main.html">Main - display data on main page</a>
+                    <a class="nav-link" aria-current="page" href="main.php">Main - display data on main page</a>
                 </li>
                 <li id="nav_list2">
-                    <a class="nav-link" href="#">This is the second line</a>
+                    <a class="nav-link" href="#"><-- What you staring at<i class='fas fa-angry'></i> ? --></a>
                 </li>
             </ul>
         </div>

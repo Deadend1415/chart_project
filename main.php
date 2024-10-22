@@ -55,25 +55,29 @@ $DB= new DataBase();
                 title: '',
                 is3D: true
             };
-            var chart = new google.visualization.PieChart(document.getElementById("Chart2"));
+            var chart = new google.visualization.PieChart(document.getElementById("Chart3"));
             chart.draw(data,options);
         }
         function drawChart3() {
             var data = google.visualization.arrayToDataTable([
 
-                ['y','x'],
+                ['y','n.','€'],
                 <?php
-                $DB->dataFetch2("SELECT SUM(Price) as Numbers,Time_stamp,COUNT(Item) as Num FROM reciept GROUP BY Time_stamp");
+                $DB->dataFetch2("SELECT Time_stamp,COUNT(Item) as Citem,SUM(Price) as Sprice FROM reciept GROUP BY Time_stamp",'Time_stamp','Citem','Sprice');
                 ?>
 
             ]);
 
             var options = {
-                title: '',
-                curveType: 'function',
-                legend: { position: 'bottom' }
+                title : '',
+                vAxis: {title: 'Numbers ;D'},
+                hAxis: {title: 'Date'},
+                seriesType: 'bars',
+                series: {5: {type: 'line'}},
+                colors: ['#a3cfbb', '#8caae7']
             };
-            var chart = new google.visualization.LineChart(document.getElementById("Chart3"));
+
+            var chart = new google.visualization.ComboChart(document.getElementById("Chart2"));
             chart.draw(data,options);
         }
 
@@ -85,7 +89,7 @@ $DB= new DataBase();
         }
     </style>
 </head>
-<body class="container-fluid d-flex flex-column vh-100 p-0"
+<body class="container-fluid d-flex flex-column p-0"
       style="background-image: url(assets/bg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -104,12 +108,12 @@ $DB= new DataBase();
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Collapsable Navigation Bar List-->
-            <ul class="navbar-nav align-items-center bg-success-subtle">
+            <ul class="navbar-nav align-items-center bg-success-subtle mt-3">
                 <li class="nav-item border-bottom border-3 border-light">
                     <a class="nav-link" aria-current="page" href="form.php">Form - insert page</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Lorem Ipsum</a>
+                    <a class="nav-link" aria-current="page" href="#"><-- What you staring at<i class='fas fa-angry'></i> ? --></a>
                 </li>
 
             </ul>
@@ -117,23 +121,23 @@ $DB= new DataBase();
     </div>
 </nav>
 <!-- Group/Father Card-->
-<div class="container-fluid d-flex justify-content-evenly mt-5 " style="display: flex;flex-wrap: wrap">
+<div class="container-fluid d-flex justify-content-evenly mt-5 h-50 " style="display: flex;flex-wrap: wrap">
     <!-- First Card -->
     <div id="card1" style="width: 22rem;">
         <div class="card-body p-0">
             <div id="Chart1" class="h-100"></div>
         </div>
         <div class="card-footer">
-            <p class="text-center">Number of Items bought by Category.</p>
+            <p class="text-center">Number of Items in each Category.</p>
         </div>
     </div>
     <!-- Second Card -->
-    <div id="card2" style="width: 22rem;">
+    <div id="card2" style="width: 28rem;">
         <div class="card-body p-0">
             <div id="Chart2" class="h-100"></div>
         </div>
         <div class="card-footer">
-            <p class="text-center">Price spent on Category</p>
+            <p class="text-center">Money and Number of Items bought in Time</p>
         </div>
     </div>
 
@@ -143,7 +147,7 @@ $DB= new DataBase();
             <div id="Chart3" class="h-100"></div>
         </div>
         <div class="card-footer">
-            <p class="text-center">Chart of expenses on daily basis</p>
+            <p class="text-center">Funds spent on Items</p>
         </div>
     </div>
     <!-- Father Card-->
