@@ -2,7 +2,13 @@
     include ("config.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $DB = new DataBase();
+    //insert
     $DB->set_User($_POST["Price"],$_POST["Item"],$_POST["Category"],$_POST["Time_Stamp"]);
+    //passing variables
+    $price = $_POST['Price'];
+    $item = $_POST['Item'];
+    $category = $_POST['Category'];
+    $timeStamp = $_POST['Time_Stamp'];
     //Alert to the user
     echo "
         <div class='toast position-fixed bottom-0 end-0 show' role='alert' aria-live='assertive' aria-atomic='true'>
@@ -12,7 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
     </div>
     <div class='toast-body bg-success-subtle'>
-        Data inputed Sucessfully.
+    Item: ".$item." Price: €".$price." <br>Category:".$category." Date: ".$timeStamp."
+    <br>
+    Data inputed Sucessfully.
     <i class='fas fa-check-circle fa-lg' style='color: rgb(34 179 112 / 65%)'></i>
     </div>
 </div>
