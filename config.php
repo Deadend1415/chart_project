@@ -42,8 +42,14 @@ class DataBase
             echo "['".$row[$x]."', ".$row[$y]." , ".$row[$z]."],";
         }
     }
+}
+$userAgent = $_SERVER['HTTP_USER_AGENT'];
 
-
-
+if (preg_match('/Mobile|Android|iPhone|iPad/i', $userAgent)) {
+    // Mobile version
+    header("Location: mobileMain.php");
+} else {
+    // Desktop version
+    header("Location: desktopMain.php");
 }
 ?>

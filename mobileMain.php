@@ -110,7 +110,7 @@ $DB= new DataBase();
             <!-- Collapsable Navigation Bar List-->
             <ul class="navbar-nav align-items-center bg-success-subtle mt-3">
                 <li class="nav-item border-bottom border-3 border-light">
-                    <a class="nav-link" aria-current="page" href="form.php">Form - insert page</a>
+                    <a class="nav-link" aria-current="page" href="mobileForm.php">Form - insert page</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#"><-- What you staring at<i class='fas fa-angry'></i> ? --></a>

@@ -1,5 +1,6 @@
 <?php
     include ("config.php");
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $DB = new DataBase();
     //insert
@@ -67,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- Collapsable Navigation Bar List-->
             <ul class="navbar-nav align-items-center bg-success-subtle mt-3">
                 <li id="nav_list1">
-                    <a class="nav-link" aria-current="page" href="main.php">Main - display data on main page</a>
+                    <a class="nav-link" aria-current="page" href="mobileMain.php">Main - display data on main page</a>
                 </li>
                 <li id="nav_list2">
                     <a class="nav-link" href="#"><-- What you staring at<i class='fas fa-angry'></i> ? --></a>
