@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- Collapsable Navigation Bar List-->
             <ul class="navbar-nav align-items-center bg-success-subtle mt-3">
                 <li id="nav_list1">
-                    <a class="nav-link" aria-current="page" href="mobileMain.php">Main - display data on main page</a>
+                    <a class="nav-link" aria-current="page" href="Main.php">Main - display data on main page</a>
                 </li>
                 <li id="nav_list2">
                     <a class="nav-link" href="#"><-- What you staring at<i class='fas fa-angry'></i> ? --></a>
@@ -83,25 +83,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="card-body">
         <!-- Form -->
         <form class="was-validated" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-            <div class="input-group mb-3">
-                <span class="bg-success-subtle input-group-text" >Item</span>
-                <input type="text" class="form-control" placeholder="Item" aria-label="Item" name="Item" required>
-                <span class="bg-success-subtle input-group-text"><i class='fab fa-asymmetrik'></i></span>
-                <input type="text" class="form-control" placeholder="Price" aria-label="Price" name="Price" required>
-                <span class="bg-success-subtle input-group-text">Price</span>
+            <div class="h4 pb-2 mb-3">
+                <label id="badge1">Item <i class='fas fa-cookie-bite'></i></label>
+                <input type="text" name="Item" class="form-control border-success" placeholder="...Like an apple" required>
             </div>
 
-            <div class="input-group mb-3">
-                <span class="bg-success-subtle input-group-text" id="basic-addon1">Category</span>
+            <div class="h4 pb-2 mb-3">
+                <label  id="badge2">Category <i class='fas fa-archive'></i></label>
                 <select class="form-select" name="Category">
                     <option selected>Choose...</option>
                     <option value="Snack">Snack</option>
                     <option value="Utilities">Utilities</option>
                     <option value="Other">Other</option>
                 </select>
-                <span class="bg-success-subtle input-group-text" id="basic-addon2">Date</span>
-                <input type="date" name="Time_Stamp" class="form-control" placeholder="Year-Month-Day" aria-label="Time Stamp" aria-describedby="basic-addon2" required>
             </div>
+
+            <div class="h4 mb-3 pb-2">
+                <div class="d-flex justify-content-between">
+                    <label  id="badge3">Price <i class='fas fa-euro-sign'></i></label>
+                    <label  id="badge4">Date <i class='far fa-calendar'></i></label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="Price" class="form-control border-success" placeholder="$1.99" required>
+                    <input type="date" name="Time_Stamp" class="form-control border-success" placeholder="Day-Year-Month" required>
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-outline-success input-group">Submit</button>
         </form>
         <!-- Form -->
@@ -118,6 +125,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- JavaScript for grouping bootstrap classes-->
 <script>
+    // Resuse badge styling
+    const BadgeStyle = 'form-label badge rounded-pill border-bottom border-success text-dark bg-success-subtle shadow';
+    document.getElementById('badge1').className = BadgeStyle;
+    document.getElementById('badge2').className = BadgeStyle;
+    document.getElementById('badge3').className = BadgeStyle;
+    document.getElementById('badge4').className = BadgeStyle;
+
     <!--  Code to reuse the class based styling from Bootstrap5  -->
     const cardStyle = 'card border-4 m-3 border-success-subtle shadow-lg align-self-center';
     document.getElementById('card1').className = cardStyle;
@@ -127,6 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     document.getElementById('nav_list1').className = Nav_ListStyle;
     document.getElementById('nav_list2').className = Nav_ListStyle;
     document.getElementById('nav_list3').className = Nav_ListStyle;
+
 </script>
 </body>
 </html>

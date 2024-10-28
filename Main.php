@@ -87,9 +87,21 @@ $DB= new DataBase();
         ::-webkit-scrollbar {
             display: none;
         }
+        /*RE*/
+        @media (min-width:768px) {
+            .responsive-card{
+                height: auto;
+                width: 22rem;
+            }
+            .responsive-container{
+                display: flex;
+                flex-wrap: wrap
+            }
+
+        }
     </style>
 </head>
-<body class="container-fluid d-flex flex-column vh-100 p-0"
+<body class="container-fluid d-flex flex-column p-0"
       style="background-image: url(assets/bg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -110,7 +122,7 @@ $DB= new DataBase();
             <!-- Collapsable Navigation Bar List-->
             <ul class="navbar-nav align-items-center bg-success-subtle mt-3">
                 <li class="nav-item border-bottom border-3 border-light">
-                    <a class="nav-link" aria-current="page" href="mobileForm.php">Form - insert page</a>
+                    <a class="nav-link" aria-current="page" href="Form.php">Form - insert page</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#"><-- What you staring at<i class='fas fa-angry'></i> ? --></a>
@@ -121,9 +133,9 @@ $DB= new DataBase();
     </div>
 </nav>
 <!-- Group/Father Card-->
-<div class="container-fluid d-flex justify-content-evenly mt-5 h-50 " style="display: flex;flex-wrap: wrap">
+<div class="container-fluid d-flex justify-content-evenly mt-5 h-50 responsive-container" style="display: flex;flex-wrap: wrap">
     <!-- First Card -->
-    <div id="card1" style="width: 22rem;">
+    <div id="card1">
         <div class="card-body p-0">
             <div id="Chart1" class="h-100"></div>
         </div>
@@ -132,7 +144,7 @@ $DB= new DataBase();
         </div>
     </div>
     <!-- Second Card -->
-    <div id="card2" style="width: 28rem;">
+    <div id="card2">
         <div class="card-body p-0">
             <div id="Chart2" class="h-100"></div>
         </div>
@@ -140,9 +152,8 @@ $DB= new DataBase();
             <p class="text-center">Money and Number of Items bought in Time</p>
         </div>
     </div>
-
     <!-- Third Card -->
-    <div id="card3" style="width: 22rem;">
+    <div id="card3">
         <div class="card-body p-0">
             <div id="Chart3" class="h-100"></div>
         </div>
@@ -152,12 +163,16 @@ $DB= new DataBase();
     </div>
     <!-- Father Card-->
 </div>
-
+<!-- Copyright -->
+<div class="text-center p-3 m-2">
+    © 2024 Copyright: Daniel Charts Project
 </div>
+<!-- Copyright -->
+
 <!-- JavaScript for grouping bootstrap classes-->
 <script>
     <!--  Code to reuse the class based styling from Bootstrap5  -->
-    const cardStyle = 'card ms-1 m-2 border-4 border-success-subtle shadow-lg';
+    const cardStyle = 'card container h-75 ms-1 m-2 border-4 border-success-subtle shadow-lg responsive-card';
     document.getElementById('card1').className = cardStyle;
     document.getElementById('card2').className = cardStyle;
     document.getElementById('card3').className = cardStyle;

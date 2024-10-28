@@ -45,11 +45,11 @@ class DataBase
 }
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
-if (preg_match('/Mobile|Android|iPhone|iPad/i', $userAgent)) {
+/*if (preg_match('/Mobile|Android|iPhone|iPad/i', $userAgent)) {
     // Mobile version
-    header("Location: mobileMain.php");
+    header("Location: Main.php");
 } else {
     // Desktop version
     header("Location: desktopMain.php");
-}
+}*/
 ?>
