@@ -46,7 +46,7 @@ $DB= new DataBase();
 
                 ['Number','Item'],
                 <?php
-                $DB->dataFetch("SELECT SUM(Price) as Number,Item FROM reciept GROUP BY Item",'Item');
+                $DB->dataFetch("SELECT COUNT(Item) as Number,ItemGroup FROM reciept GROUP BY ItemGroup",'ItemGroup');
                 ?>
 
             ]);
