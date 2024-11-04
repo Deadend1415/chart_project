@@ -42,14 +42,16 @@ class DataBase
             echo "['".$row[$x]."', ".$row[$y]." , ".$row[$z]."],";
         }
     }
+
+    function ItemGroups()
+    {
+        $stmt = $this->db->query("SELECT ItemGroup FROM `reciept` GROUP BY ItemGroup");
+        while ($row = $stmt->fetch()) {
+                echo "<div class = 'badge bg-success-subtle text-black m-1 border-bottom shadow border-success rounded pill'>".$row['ItemGroup'] ."</div>";
+        }
+    }
 }
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
-/*if (preg_match('/Mobile|Android|iPhone|iPad/i', $userAgent)) {
-    // Mobile version
-    header("Location: Main.php");
-} else {
-    // Desktop version
-    header("Location: desktopMain.php");
-}*/
+
 ?>

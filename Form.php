@@ -81,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!-- Card -->
 <div id="card1">
     <div class="card-body">
+
         <!-- Form -->
         <form class="was-validated" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <div class="h4 pb-2 mb-3">
@@ -89,7 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="h4 pb-2 mb-3">
-                <label id="badge2">ItemGroup <i class='fas fa-cookie-bite'></i></label>
+                <label id="badge2">ItemGroup
+                    <button class="border-1 bg-success-subtle border-light rounded" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions">
+                        <i class='fa-solid fa-cubes-stacked fa-bounce'></i>
+                    </button>
+                </label>
                 <input type="text" name="ItemGroup" class="form-control border-success" placeholder="...Biscuit?" required>
             </div>
 
@@ -105,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="h4 mb-3 pb-2">
                 <div class="d-flex justify-content-between">
-                    <label  id="badge4">Price <i class='fas fa-euro-sign'></i></label>
+                    <label  id="badge4">Price <i class='fas fa-euro-sign fa-flip'></i></label>
                     <label  id="badge5">Date <i class='far fa-calendar'></i></label>
                 </div>
                 <div class="input-group">
@@ -120,6 +125,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </div>
 <!-- Card -->
+
+<!--Off-canvas-->
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">ItemGroups</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-grow-0 flex-wrap justify-content-between">
+        <?php
+        $DB = new DataBase();
+        $DB->ItemGroups();
+        ?>
+    </div>
+</div>
+<!--Off-canvas-->
+<div class="container flex-wrap d-flex justify-content-around ">
+</div>
+
 <!-- Copyright -->
 <div class="text-center p-3 m-2">
     © 2024 Copyright: Daniel Charts Project
