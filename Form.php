@@ -89,7 +89,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="h4 pb-2 mb-3">
-                <label  id="badge2">Category <i class='fas fa-archive'></i></label>
+                <label id="badge2">ItemGroup <i class='fas fa-cookie-bite'></i></label>
+                <input type="text" name="ItemGroup" class="form-control border-success" placeholder="...Biscuit?" required>
+            </div>
+
+            <div class="h4 pb-2 mb-3">
+                <label  id="badge3">Category <i class='fas fa-archive'></i></label>
                 <select class="form-select" name="Category">
                     <option selected>Choose...</option>
                     <option value="Snack">Snack</option>
@@ -100,8 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="h4 mb-3 pb-2">
                 <div class="d-flex justify-content-between">
-                    <label  id="badge3">Price <i class='fas fa-euro-sign'></i></label>
-                    <label  id="badge4">Date <i class='far fa-calendar'></i></label>
+                    <label  id="badge4">Price <i class='fas fa-euro-sign'></i></label>
+                    <label  id="badge5">Date <i class='far fa-calendar'></i></label>
                 </div>
                 <div class="input-group">
                     <input type="text" name="Price" class="form-control border-success" placeholder="$1.99" required>
@@ -131,6 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     document.getElementById('badge2').className = BadgeStyle;
     document.getElementById('badge3').className = BadgeStyle;
     document.getElementById('badge4').className = BadgeStyle;
+    document.getElementById('badge5').className = BadgeStyle;
 
     <!--  Code to reuse the class based styling from Bootstrap5  -->
     const cardStyle = 'card border-4 m-3 border-success-subtle shadow-lg align-self-center';
